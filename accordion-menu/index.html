@@ -5,10 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accordion-menu</title>
+    <style>
+        .fold {background-color: #777;color: white;cursor: pointer;padding:18px;width: 100%;border: none;text-align: left;outline: none;font-size:15px;}
+        .active, .fold:hover {background-color: #555;}
+        .content {padding: 0px 18px;max-height: 0;overflow: hidden;transition: max-height 0.2s ease-out;background-color: #f1f1f1;}
+        .fold::after {content:'\002B';color:white;font-weight: bold;float: right;margin-left: 5px;}
+        .active::after {content:'\2212'}
+    </style>
 </head>
 <body>
     <h2>메뉴를 접고 펼치기 예습</h2>
-    <button type="button" class="fold">제목 1</button>
-    <div class="content"></div>
+    <button type="button" class="fold" onclick="fold(this)">제목 1</button>
+    <div class="content">
+        <span>Content1</span>
+    </div>
+    <button type="button" class="fold" onclick="fold(this)">제목 2</button>
+    <div class="content">
+        <span>Content2</span>
+    </div>
+    <button type="button" class="fold" onclick="fold(this)">제목 3</button>
+    <div class="content">
+        <span>Content3</span>
+    </div>
+
+    <script>
+        function fold(element) {
+            var before = document.getElementsByClassName("active")[0]
+            if(before && document.getElementsByClassName("active")[0] != element) {
+                before.nextElementSibling.style.maxHeight = null;
+                before.classList.remove("active");
+            }
+            element.classList.toggle("active");
+
+            var content = element.nextElementSibling;
+            if(content.style.maxHeight != 0) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    </script>
 </body>
 </html>

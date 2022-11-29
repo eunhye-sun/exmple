@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">click</button>
+    <button id="btn2">click</button>
+    <p>내용</p>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script>
+    $(function() {
+        $("#btn1").click(function() {
+            $('p').css("background-color","yellow");
+            console.log("click")
+        });
+        $("#btn2").dblclick(function() {
+            $('p').css("background-color","purple");
+        });
+        //클릭 이벤트 시 컬러 변경
+    })
+</script>
+</body>
+</html>

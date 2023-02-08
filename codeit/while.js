@@ -5,7 +5,7 @@ while (조건부분) {
 
 let i = 1;
 while (i <= 10) {
-    console.log(`${i} 코드잇`);
+    console.log(`${i} 코드잇!!!`);
     i++;
 }
 
